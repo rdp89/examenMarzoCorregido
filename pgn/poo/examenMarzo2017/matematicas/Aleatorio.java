@@ -4,7 +4,7 @@ public class Aleatorio {
 	private double numero;
 	
 	public double getAleatorio(){
-		numero = Math.random()*50d;
+		numero = Math.random();//*50d;
 		return numero;
 	}
 }

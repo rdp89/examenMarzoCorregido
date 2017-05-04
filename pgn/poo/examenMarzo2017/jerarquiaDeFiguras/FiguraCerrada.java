@@ -3,7 +3,7 @@ package pgn.poo.examenMarzo2017.jerarquiaDeFiguras;
 import pgn.poo.examenMarzo2017.excepciones.DimensionNoValidaException;
 
 public abstract class FiguraCerrada {
-	private int identificador = 1;
+	protected int identificador;
     private static int contador = 1;
 	
 	public FiguraCerrada(){
@@ -19,7 +19,7 @@ public abstract class FiguraCerrada {
 
 
 	public FiguraCerrada(int identificador){
-		this.setIdentificador(identificador);
+		setIdentificador(identificador);
 	}
 	
 	protected boolean dimensionValida(double base) throws DimensionNoValidaException {
@@ -44,4 +44,31 @@ public abstract class FiguraCerrada {
 	public void setIdentificador(int identificador) {
 		this.identificador = identificador;
 	}
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + identificador;
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(this instanceof FiguraCerrada))
+			return false;
+		FiguraCerrada other = (FiguraCerrada) obj;
+		if (identificador != other.identificador)
+			return false;
+		return true;
+	}
+	
 }
